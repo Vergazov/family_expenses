@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/add', [ExpensesController::class, 'createExpenses'])->name('add');
+Route::get('/expenses', [ExpensesController::class, 'index'])->name('expenses.index');
 
-Route::get('/list', [ExpensesController::class, 'getExpensesList'])->name('list');
+Route::get('/expenses/create', [ExpensesController::class, 'create'])->name('expenses.create');
+
+Route::post('/expenses', [ExpensesController::class, 'store'])->name('expenses.store');
 
 

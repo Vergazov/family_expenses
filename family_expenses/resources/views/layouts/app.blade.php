@@ -10,8 +10,8 @@
 </head>
     <div class="container mt-5">
         <nav class="navbar nav nav-pills nav-justified " style="background-color: #e3f2fd;">
-            <a class="nav-link" aria-current="page" href="{{route('add')}}">Посчитать расходы</a>
-            <a class="nav-link " href="{{route('list')}}">Список расходов</a>
+            <a class="nav-link " href="{{route('expenses.index')}}">Список расходов</a>
+            <a class="nav-link" aria-current="page" href="{{route('expenses.create')}}">Посчитать расходы</a>
         </nav>
     </div>
 <body>
