@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExpensesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('add_finances');
-});
+Route::get('/add', [ExpensesController::class, 'createExpenses'])->name('add');
+
+Route::get('/list', [ExpensesController::class, 'getExpensesList'])->name('list');
+
+
