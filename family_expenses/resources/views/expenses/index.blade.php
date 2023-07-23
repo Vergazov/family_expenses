@@ -7,6 +7,7 @@
             <tr>
                 <th scope="col">Статья расхода</th>
                 <th scope="col">Сумма</th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -14,6 +15,7 @@
             <tr>
                 <td>{{$expense->expenditure}}</td>
                 <td>{{$expense->sum}}</td>
+                <td><a  class="btn btn-warning" href="{{route('expenses.edit',$expense->id)}}">Изменить</a></td>
             </tr>
             @endforeach
             </tbody>

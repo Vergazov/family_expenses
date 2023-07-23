@@ -25,4 +25,18 @@ class ExpensesController extends Controller
         return redirect()->route('expenses.create');
     }
 
+    public function edit(Expens $expense){
+        return view('expenses.edit',compact('expense'));
+    }
+
+    public function update(Expens $expense){
+        $data = request()->validate([
+            'expenditure' => 'string',
+            'sum' => 'int'
+        ]);
+        $expense->update($data);
+        return redirect()->route('expenses.index');
+
+    }
+
 }
