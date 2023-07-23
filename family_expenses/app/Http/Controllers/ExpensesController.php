@@ -9,7 +9,8 @@ class ExpensesController extends Controller
 {
     public function index(){
         $expenses = Expens::all();
-        return view('expenses.index',compact('expenses'));
+        $sum = Expens::all()->sum('sum');
+        return view('expenses.index',compact('expenses','sum'));
     }
 
     public function create(){
@@ -36,7 +37,16 @@ class ExpensesController extends Controller
         ]);
         $expense->update($data);
         return redirect()->route('expenses.index');
+    }
 
+    public function destroy(Expens $expense){
+        $expense->delete();
+        return redirect()->route('expenses.index');
+    }
+
+    public function sum(){
+        $sum = Expens::all()->sum('sum');
+        return view('expenses.index',compact('sum'));
     }
 
 }

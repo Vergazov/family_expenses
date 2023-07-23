@@ -24,6 +24,12 @@ Route::get('/expenses/{expense}/edit', [ExpensesController::class, 'edit'])->nam
 
 Route::patch('/expenses/{expense}', [ExpensesController::class, 'update'])->name('expenses.update');
 
+Route::delete('/expenses/{expense}', [ExpensesController::class, 'destroy'])->name('expenses.destroy');
+
+Route::get('/sum', [ExpensesController::class, 'sum'])->name('expenses.sum');
+
+
+
 
 
 
