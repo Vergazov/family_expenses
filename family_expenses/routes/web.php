@@ -20,4 +20,17 @@ Route::get('/expenses/create', [ExpensesController::class, 'create'])->name('exp
 
 Route::post('/expenses', [ExpensesController::class, 'store'])->name('expenses.store');
 
+Route::get('/expenses/{expense}/edit', [ExpensesController::class, 'edit'])->name('expenses.edit');
+
+Route::patch('/expenses/{expense}', [ExpensesController::class, 'update'])->name('expenses.update');
+
+Route::delete('/expenses/{expense}', [ExpensesController::class, 'destroy'])->name('expenses.destroy');
+
+Route::get('/sum', [ExpensesController::class, 'sum'])->name('expenses.sum');
+
+
+
+
+
+
 
