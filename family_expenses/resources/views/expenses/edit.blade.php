@@ -12,7 +12,12 @@
                 <label for="sum" class="form-label">Сумма</label>
                 <input name="sum" type="number" class="form-control" id="sum" value="{{$expense->sum}}">
             </div>
+            <div class="mb-3">
+                <label for="note" class="form-label">Примечание</label>
+                <input name="note" type="text" class="form-control" id="note" value="{{$expense->note}}">
+            </div>
             <button type="submit" class="btn btn-primary">Изменить</button>
+            <a class="btn btn-danger" href="{{route('expenses.cancel')}}">Отмена</a>
         </form>
     </div>
 @endsection

@@ -28,6 +28,8 @@ Route::delete('/expenses/{expense}', [ExpensesController::class, 'destroy'])->na
 
 Route::get('/sum', [ExpensesController::class, 'sum'])->name('expenses.sum');
 
+Route::get('/cancel', [ExpensesController::class, 'cancel'])->name('expenses.cancel');
+
 
 
 

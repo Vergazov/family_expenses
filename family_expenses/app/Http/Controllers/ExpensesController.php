@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ExpensesRequest;
 use App\Models\Expens;
 use Illuminate\Http\Request;
 
@@ -17,12 +18,9 @@ class ExpensesController extends Controller
         return view('expenses.create');
     }
 
-    public function store(){
-        $data = request()->validate([
-            'expenditure' => ['string'],
-            'sum' => ['int']
-        ]);
-        Expens::create($data);
+    public function store(ExpensesRequest $req){
+        Expens::create($req->all());
+//        dd($req->all());
         return redirect()->route('expenses.index');
     }
 
@@ -30,17 +28,17 @@ class ExpensesController extends Controller
         return view('expenses.edit',compact('expense'));
     }
 
-    public function update(Expens $expense){
-        $data = request()->validate([
-            'expenditure' => 'string',
-            'sum' => 'int'
-        ]);
-        $expense->update($data);
+    public function update(Expens $expense,ExpensesRequest $req){
+        $expense->update($req->all());
         return redirect()->route('expenses.index');
     }
 
     public function destroy(Expens $expense){
         $expense->delete();
+        return redirect()->route('expenses.index');
+    }
+
+    public function cancel(){
         return redirect()->route('expenses.index');
     }
 

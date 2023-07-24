@@ -15,12 +15,16 @@
         <form action="{{route('expenses.store')}}" method="post">
             @csrf
             <div class="mb-3">
-                <label for="expenditure" class="form-label">Статья расхода</label>
+                <label for="expenditure" class="form-label">Статья расходов</label>
                 <input name="expenditure" type="text" class="form-control" id="expenditure" value="{{ old('expenditure') }}">
             </div>
             <div class="mb-3">
                 <label for="sum" class="form-label">Сумма</label>
                 <input name="sum" type="number" class="form-control" id="sum" value="{{ old('sum') }}">
+            </div>
+            <div class="mb-3">
+                <label for="note" class="form-label">Примечание</label>
+                <input name="note" type="text" class="form-control" id="note" value="{{ old('note') }}">
             </div>
             <button type="submit" class="btn btn-primary">Добавить</button>
         </form>
@@ -32,6 +36,7 @@
             <tr>
                 <th scope="col">Статья расхода</th>
                 <th scope="col">Сумма</th>
+                <th scope="col">Примечание</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
@@ -41,6 +46,7 @@
             <tr>
                 <td>{{$expense->expenditure}}</td>
                 <td>{{$expense->sum}}</td>
+                <td>{{$expense->note}}</td>
                 <td><a class="btn btn-warning" href="{{route('expenses.edit',$expense->id)}}">Изменить</a></td>
                 <td>
                     <form action="{{route('expenses.destroy',$expense->id)}}" method="post">
