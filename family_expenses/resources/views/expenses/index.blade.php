@@ -31,8 +31,10 @@
     </div>
     <div class="container">
         <table class="table">
-            <td><a class="btn btn-warning" href="{{route('expenses.sum')}}">Рассчитать</a></td>
-            <td>{{$sum}}</td>
+            <td>Итого</td>
+            <td><b>{{$sum}}</b></td>
+            <td></td>
+            <td></td>
         </table>
     </div>
 
