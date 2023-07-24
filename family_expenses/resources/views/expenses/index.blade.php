@@ -1,7 +1,32 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class="container">
+    <div class="container w-50 p-3">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <h3>Добавить статью расходов</h3>
+        <form action="{{route('expenses.store')}}" method="post">
+            @csrf
+            <div class="mb-3">
+                <label for="expenditure" class="form-label">Статья расхода</label>
+                <input name="expenditure" type="text" class="form-control" id="expenditure" value="{{ old('expenditure') }}">
+            </div>
+            <div class="mb-3">
+                <label for="sum" class="form-label">Сумма</label>
+                <input name="sum" type="number" class="form-control" id="sum" value="{{ old('sum') }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+    </div>
+    <div class="container w-50 p-3">
+        <h3>Список расходов</h3>
         <table class="table">
             <thead>
             <tr>
@@ -29,7 +54,7 @@
             @endforeach
         </table>
     </div>
-    <div class="container">
+    <div class="container  w-50 p-3">
         <table class="table">
             <td>Итого</td>
             <td><b>{{$sum}}</b></td>
@@ -37,5 +62,4 @@
             <td></td>
         </table>
     </div>
-
 @endsection

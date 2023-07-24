@@ -19,11 +19,11 @@ class ExpensesController extends Controller
 
     public function store(){
         $data = request()->validate([
-            'expenditure' => 'string',
-            'sum' => 'int'
+            'expenditure' => ['string'],
+            'sum' => ['int']
         ]);
         Expens::create($data);
-        return redirect()->route('expenses.create');
+        return redirect()->route('expenses.index');
     }
 
     public function edit(Expens $expense){
@@ -42,11 +42,6 @@ class ExpensesController extends Controller
     public function destroy(Expens $expense){
         $expense->delete();
         return redirect()->route('expenses.index');
-    }
-
-    public function sum(){
-        $sum = Expens::all()->sum('sum');
-        return view('expenses.index',compact('sum'));
     }
 
 }

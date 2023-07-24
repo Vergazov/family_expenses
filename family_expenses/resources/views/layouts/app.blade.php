@@ -8,12 +8,6 @@
     <title>Document</title>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-    <div class="container mt-5">
-        <nav class="navbar nav nav-pills nav-justified " style="background-color: #e3f2fd;">
-            <a class="nav-link " href="{{route('expenses.index')}}">Список расходов</a>
-            <a class="nav-link" aria-current="page" href="{{route('expenses.create')}}">Добавить расходы</a>
-        </nav>
-    </div>
 <body>
 @yield('content')
 </body>
