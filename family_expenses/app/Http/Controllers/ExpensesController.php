@@ -20,7 +20,6 @@ class ExpensesController extends Controller
 
     public function store(ExpensesRequest $req){
         Expens::create($req->all());
-//        dd($req->all());
         return redirect()->route('expenses.index');
     }
 
