@@ -31,8 +31,8 @@ class ExpensesRequest extends FormRequest
     public function messages()
     {
         return[
-            'expenditure.required' => 'Поле статья расходов должно быть заполнено',
-            'sum.required' => 'Поле сумма должно быть заполнено'
+            'expenditure.required' => 'Поле "Статья расходов" должно быть заполнено',
+            'sum.required' => 'Поле "Сумма" должно быть заполнено'
         ];
     }
 }
