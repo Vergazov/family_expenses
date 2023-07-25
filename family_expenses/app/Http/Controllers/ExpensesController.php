@@ -15,7 +15,9 @@ class ExpensesController extends Controller
     }
 
     public function store(ExpensesRequest $req){
-        Expens::updateOrCreate(['expenditure' => $req->all('expenditure')],$req->all());
+        Expens::updateOrCreate(
+            ['expenditure' => $req->all('expenditure'), 'note' => $req->all('note')],
+            $req->all());
         return redirect()->route('expenses.index');
     }
 
