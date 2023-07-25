@@ -20,13 +20,11 @@ class ExpensesController extends Controller
     }
 
     public function updateOrCreate(ExpensesRequest $req){
-        Expens::firstOrCreate(
-            [
-                $req->all('expenditure')
-            ],
-            [
-                Exec::create($req->all())
-            ]);
+        Expens::updateOrCreate(
+            ['expenditure' => $req->all('expenditure')],
+            $req->all());
+        return redirect()->route('expenses.index');
+
     }
 
     public function edit(Expens $expense){

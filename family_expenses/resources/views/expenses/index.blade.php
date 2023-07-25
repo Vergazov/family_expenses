@@ -12,7 +12,7 @@
             </div>
         @endif
         <h3>Добавить статью расходов</h3>
-        <form action="{{route('expenses.store')}}" method="post">
+        <form action="{{route('expenses.updateOrCreate')}}" method="post">
             @csrf
             <div class="mb-3">
                 <label for="expenditure" class="form-label">Статья расходов</label>

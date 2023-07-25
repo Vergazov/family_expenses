@@ -18,7 +18,7 @@ Route::get('/expenses', [ExpensesController::class, 'index'])->name('expenses.in
 
 Route::get('/expenses/create', [ExpensesController::class, 'create'])->name('expenses.create');
 
-Route::get('/expenses/updateOrCreate', [ExpensesController::class, 'updateOrCreate'])->name('expenses.updateOrCreate');
+Route::post('/expenses/updateOrCreate', [ExpensesController::class, 'updateOrCreate'])->name('expenses.updateOrCreate');
 
 Route::post('/expenses', [ExpensesController::class, 'store'])->name('expenses.store');
 
