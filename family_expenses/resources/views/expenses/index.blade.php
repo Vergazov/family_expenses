@@ -23,6 +23,13 @@
                 <input name="sum" type="number" class="form-control" id="sum" value="{{ old('sum') }}">
             </div>
             <div class="mb-3">
+                <label for="whose_expenses" class="form-label">Чиь расходы</label>
+                <select  name="whose_expenses" class="form-select " id="'whose_expenses">
+                    <option value="Артем">Артем</option>
+                    <option value="Юля">Юля</option>
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="note" class="form-label">Примечание</label>
                 <input name="note" type="text" class="form-control" id="note" value="{{ old('note') }}">
             </div>
@@ -36,6 +43,7 @@
             <tr>
                 <th scope="col">Статья расхода</th>
                 <th scope="col">Сумма</th>
+                <th scope="col">Чей расход</th>
                 <th scope="col">Примечание</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -46,6 +54,7 @@
             <tr>
                 <td>{{$expense->expenditure}}</td>
                 <td>{{$expense->sum}}</td>
+                <td>{{$expense->whose_expenses}}</td>
                 <td>{{$expense->note}}</td>
                 <td><a class="btn btn-warning" href="{{route('expenses.edit',$expense->id)}}">Изменить</a></td>
                 <td>
