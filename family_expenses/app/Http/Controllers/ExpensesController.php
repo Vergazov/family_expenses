@@ -14,13 +14,19 @@ class ExpensesController extends Controller
         return view('expenses.index',compact('expenses','sum'));
     }
 
-    public function create(){
-        return view('expenses.create');
-    }
-
     public function store(ExpensesRequest $req){
         Expens::create($req->all());
         return redirect()->route('expenses.index');
+    }
+
+    public function updateOrCreate(ExpensesRequest $req){
+        Expens::firstOrCreate(
+            [
+                $req->all('expenditure')
+            ],
+            [
+                Exec::create($req->all())
+            ]);
     }
 
     public function edit(Expens $expense){
