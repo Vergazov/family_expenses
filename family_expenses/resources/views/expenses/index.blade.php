@@ -24,7 +24,8 @@
             </div>
             <div class="mb-3">
                 <label for="whose_expenses" class="form-label">Чиь расходы</label>
-                <select  name="whose_expenses" class="form-select " id="'whose_expenses">
+                <select  name="whose_expenses" class="form-select" id="whose_expenses" value="{{ old('whose_expenses') }}">
+                    <option value=""></option>
                     <option value="Артем">Артем</option>
                     <option value="Юля">Юля</option>
                 </select>
@@ -71,10 +72,10 @@
     </div>
     <div class="container  w-50 p-3">
         <table class="table">
-            <td>Итого</td>
-            <td><b>{{$sum}}</b></td>
-            <td></td>
-            <td></td>
+            <td>Юля</td>
+            <td><b>{{$sumJulia}}</b></td>
+            <td>Артем</td>
+            <td><b>{{$sumArtem}}</b></td>
         </table>
     </div>
 @endsection

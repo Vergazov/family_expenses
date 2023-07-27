@@ -10,13 +10,17 @@ class ExpensesController extends Controller
 {
     public function index(){
         $expenses = Expens::all();
-        $sum = Expens::all()->sum('sum');
-        return view('expenses.index',compact('expenses','sum'));
+        $sumArtem = Expens::where('whose_expenses', 'Артем')->sum('sum');
+        $sumJulia = Expens::where('whose_expenses', 'Юля')->sum('sum');
+        return view('expenses.index',compact('expenses','sumArtem', 'sumJulia'));
     }
 
     public function store(ExpensesRequest $req){
         Expens::updateOrCreate(
-            ['expenditure' => $req->all('expenditure'), 'note' => $req->all('whose_expenses')],
+            [
+                'expenditure' => $req->all('expenditure'),
+                'whose_expenses' => $req->all('whose_expenses')
+            ],
             $req->all());
         return redirect()->route('expenses.index');
     }
