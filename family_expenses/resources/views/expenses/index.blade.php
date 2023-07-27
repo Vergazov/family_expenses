@@ -23,7 +23,7 @@
                 <input name="sum" type="number" class="form-control" id="sum" value="{{ old('sum') }}">
             </div>
             <div class="mb-3">
-                <label for="whose_expenses" class="form-label">Чиь расходы</label>
+                <label for="whose_expenses" class="form-label">Чьи расходы</label>
                 <select  name="whose_expenses" class="form-select" id="whose_expenses" value="{{ old('whose_expenses') }}">
                     <option value=""></option>
                     <option value="Артем">Артем</option>
